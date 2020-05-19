@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>video-chat-prototype</title>
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+
+    <!-- Polyfill for fetch API so that we can fetch the sessionId and token in IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <div id="screen" class="screen"></div>
+ 
+    <div id="subscriber" class="subscriber grid"></div>
+    <div id="publisher" class="publisher">
+        <div class="grid--sizer"></div>
+    </div>
+   
+    <button id="startScreenShare" class="screen-share">Share Screen</button>
+    <button id="stopScreenShare" class="screen-share hidden">Stop Sharing Screen</button>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>
