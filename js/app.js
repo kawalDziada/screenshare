@@ -1,7 +1,7 @@
 let apiKey = '46744432';
 let sessionId = '1_MX40Njc0NDQzMn5-MTU4OTgwMzEyOTExM35ZUnlOYWY0Vlc0TnZ5aktFMVdqT09LWjF-fg';
 let token = 'T1==cGFydG5lcl9pZD00Njc0NDQzMiZzaWc9MzNjMTZiMDZlMzRlOGE2NDA1ODI4MjQ3NzlhZTY2ZDRmZDE4M2MyOTpzZXNzaW9uX2lkPTFfTVg0ME5qYzBORFF6TW41LU1UVTRPVGd3TXpFeU9URXhNMzVaVW5sT1lXWTBWbGMwVG5aNWFrdEZNVmRxVDA5TFdqRi1mZyZjcmVhdGVfdGltZT0xNTg5ODAzMTkzJm5vbmNlPTAuNTY2OTkxMDM2MTA2MDcxMyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTkyMzk1MTkyJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9';
-// let items;
+
 // Handling all of our errors here by alerting them
 function handleError(error) {
   if (error) {
@@ -10,7 +10,7 @@ function handleError(error) {
 }
 
 let session;
-var SERVER_BASE_URL = 'https://nextvideoapp.herokuapp.com';
+const SERVER_BASE_URL = 'https://nextvideoapp.herokuapp.com';
     fetch(SERVER_BASE_URL + '/session').then(function(res) {
       return res.json()
     }).then(function(res) {
@@ -115,11 +115,10 @@ stopShareBtn.addEventListener("click", event => {
   document.getElementById("screen").classList.remove("pub-active");
 });
 
-// let items = document.getElementsByClassName('OT_subscriber');
-
-// let items = document.getElementsByClassName("OT_subscriber");
-// console.log(items)
-// Array.prototype.forEach.call(items, item => {
-//   console.log(item)
-// });
+setTimeout(() => { 
+  if (session) {
+    session.disconnect(); 
+  }
+  alert('Your call has ended after the half-hour') 
+}, 540000)
 
