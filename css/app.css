@@ -44,6 +44,12 @@ button {
   margin-bottom: 1em;
 }
 
+.subscriber-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-gap: 10px !important;
+}
+
 .subscriber,
 .screen.pub-active,
 .screen.sub-active {

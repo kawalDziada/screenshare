@@ -1,11 +1,25 @@
 let apiKey = '46750292';
 let sessionId = '2_MX40Njc1MDI5Mn5-MTU5MDA0NzU4MjAzOX5nYmlvZVBsandCMjlWYXJJNHV5d1psejZ-fg';
 let token = 'T1==cGFydG5lcl9pZD00Njc1MDI5MiZzaWc9NWYxYWM1MWNlMjI5ZWUyNjZjMzQyYzllNGFhYjE4YTBjZTRkM2Y1YTpzZXNzaW9uX2lkPTJfTVg0ME5qYzFNREk1TW41LU1UVTVNREEwTnpVNE1qQXpPWDVuWW1sdlpWQnNhbmRDTWpsV1lYSkpOSFY1ZDFwc2VqWi1mZyZjcmVhdGVfdGltZT0xNTkwMDQ3NjExJm5vbmNlPTAuNzA0MzQ0NDIxNzM3Mzc3MyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTkyNjM5NjEwJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9';
-
+let items = 1;
+const mainDiv = document.getElementById('subscriber')
 // Handling all of our errors here by alerting them
 function handleError(error) {
   if (error) {
     alert(error.message);
+  }
+}
+
+function changelayout(appendNumber) {
+  console.log(appendNumber)
+  if(appendNumber >= 5) {
+    mainDiv.classList.add('subscriber-row')
+  }
+}
+
+function changeBackLayout(appendNumber) {
+  if(appendNumber < 5) {
+    mainDiv.classList.remove('subscriber-row')
   }
 }
 
@@ -55,11 +69,15 @@ function initializeSession(apiKey, sessionId, token) {
         width: "100%",
         height: "100%"
       },
-      handleScreenShare(event.stream.videoType)
+      handleScreenShare(event.stream.videoType),
+      items ++,
+      changelayout(items)
     );
   });
   session.on("streamDestroyed", event => {
     document.getElementById("screen").classList.remove("sub-active");
+    items --
+    changeBackLayout(items)
   });
 }
 // Function to handle screenshare layout
@@ -121,4 +139,3 @@ setTimeout(() => {
   }
   alert('Your call has ended after the half-hour') 
 }, 540000)
-
