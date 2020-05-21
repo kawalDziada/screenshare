@@ -10,7 +10,7 @@ function handleError(error) {
 }
 
 let session;
-const SERVER_BASE_URL = 'https://nextvideoapp.herokuapp.com';
+const SERVER_BASE_URL = 'https://pleasebeavailable.herokuapp.com';
     fetch(SERVER_BASE_URL + '/session').then(function(res) {
       return res.json()
     }).then(function(res) {
